@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="gallery.js"></script>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: finite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+</style>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1 class="heading1"><b><i>FooDStA</i></b></h1></a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="search.html" target="_self">Search Hotel</a></li>
+      <li><a href="gallery.html" target="_self">Gallery</a></li>
+        <li><a href="contact.html" target="_self">Contact Us</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div id="image1">
+  <img src="food.jpg">
+  <button type="button" class="btn1"><a href="bevarages.html">Bevarages</a></button>
+<button type="button" class="btn1"><a href="seafood.html">seafood</a></button>
+<button type="button" class="btn1"><a href="canadian.html">canadian</a></button>
+</div>
+<div style="display:flex; justify-content:space-around">
+  <div>
+    <image src="image1.jpg">
+  </div>
+
+
+  <div>
+    <image src="image3.jpg">
+  </div>
+</div>
+    </body>
+</html>

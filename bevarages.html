@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style1.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body onload="loadDoc()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1 class="heading"><b><i>FooDStA</i></b></h1></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="search.html" target="_self">Search Hotel</a></li>
+      <li><a href="gallery.html" target="_self">Gallery</a></li>
+              <li><a href="contact.html" target="_self">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+ <div class="drinks">
+   <h1 class="hi" align="center">BEVARAGES</h1>
+   <div class="gallery">
+  <a target="_blank" href="">
+    <img id="i1" src="cocktails.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div >
+  <b><div id="d1" align="center"></div></b>
+  <h3>Ingredients:</h3>
+  <div id="g1"></div>
+    <div id="g2"></div>
+      <div id="g3"></div>
+        <div id="g4"></div>
+        <h3>Instructions:</h3>
+  <div id="a1"></div>
+  </div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="">
+    <img id="i2" src="cocktails.jpg" alt="Forest" width="600" height="183px;">
+  </a>
+  <div>
+    <b><div id="d2" align="center"></div></b>
+      <h3>Ingredients:</h3>
+      <div id="s1"></div>
+        <div id="s2"></div>
+          <div id="s3"></div>
+            <div id="s4"></div>
+            <h3>Instructions:</h3>
+    <div id="a2"></div>
+  </div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_lights.jpg">
+    <img  id="i3" src="cocktails.jpg" alt="Northern Lights" width="600" height="400">
+  </a>
+  <b><div id="d3" align="center"></div></b>
+  <h3>Ingredients:</h3>
+  <div id="f1"></div>
+    <div id="f2"></div>
+      <div id="f3"></div>
+        <div id="f4"></div>
+        <h3>Instructions:</h3>
+  <div id="a3"></div>
+</div>
+</div>
+
+   <script>
+
+   function loadDoc() {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var obj=JSON.parse(this.responseText);
+    var name=obj.drinks[0].strDrink
+    var url=obj.drinks[0].strDrinkThumb
+    var res=obj.drinks[0].strInstructions
+    var ieg1=obj.drinks[0].strIngredient1
+    var ieg2=obj.drinks[0].strIngredient2
+    var ieg3=obj.drinks[0].strIngredient3
+    var ieg4=obj.drinks[0].strIngredient4
+    document.getElementById("a1").innerHTML=res;
+      document.getElementById("d1").innerHTML=name;
+      document.getElementById("g1").innerHTML=ieg1;
+      document.getElementById("g2").innerHTML=ieg2;
+      document.getElementById("g3").innerHTML=ieg3;
+      document.getElementById("g4").innerHTML=ieg4;
+    var get_tag=document.getElementById("i1");
+    get_tag.setAttribute("width","200px");
+    get_tag.setAttribute("height","20px");
+    get_tag.setAttribute('src',url)
+    var name2=obj.drinks[1].strDrink
+    var url2=obj.drinks[1].strDrinkThumb
+    var res2=obj.drinks[1].strInstructions
+    var ie1=obj.drinks[1].strIngredient1
+    var ie2=obj.drinks[1].strIngredient2
+    var ie3=obj.drinks[1].strIngredient3
+    var ie4=obj.drinks[1].strIngredient4
+    document.getElementById("a1").innerHTML=res;
+      document.getElementById("d1").innerHTML=name;
+      document.getElementById("s1").innerHTML=ie1;
+      document.getElementById("s2").innerHTML=ie2;
+      document.getElementById("s3").innerHTML=ie3;
+      document.getElementById("s4").innerHTML=ie4;
+    document.getElementById("a2").innerHTML=res2;
+      document.getElementById("d2").innerHTML=name2;
+    var get_tag2=document.getElementById("i2");
+    get_tag2.setAttribute("width","200px");
+    get_tag2.setAttribute("height","20px");
+    get_tag2.setAttribute('src',url2)
+    var name3=obj.drinks[4].strDrink
+    var url3=obj.drinks[4].strDrinkThumb
+    var res3=obj.drinks[4].strInstructions
+    var eg1=obj.drinks[4].strIngredient1
+    var eg2=obj.drinks[4].strIngredient2
+    var eg3=obj.drinks[4].strIngredient3
+    var eg4=obj.drinks[4].strIngredient4
+    document.getElementById("a1").innerHTML=res;
+      document.getElementById("d1").innerHTML=name;
+      document.getElementById("f1").innerHTML=eg1;
+      document.getElementById("f2").innerHTML=eg2;
+      document.getElementById("f3").innerHTML=eg3;
+      document.getElementById("f4").innerHTML=eg4;
+    document.getElementById("a3").innerHTML=res3;
+      document.getElementById("d3").innerHTML=name3;
+    var get_tag3=document.getElementById("i3");
+    get_tag3.setAttribute("width","200px");
+    get_tag3.setAttribute("height","20px");
+    get_tag3.setAttribute('src',url3)
+    var name4=obj.drinks[3].strDrink
+    var url4=obj.drinks[3].strDrinkThumb
+    var res4=obj.drinks[3].strInstructions
+    document.getElementById("a4").innerHTML=res4;
+      document.getElementById("d4").innerHTML=name4;
+    var get_tag4=document.getElementById("i4");
+    get_tag4.setAttribute("width","200px");
+    get_tag4.setAttribute("height","20px");
+    get_tag4.setAttribute('src',url4)
+
+  }
+  };
+  xhttp.open("GET", "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita", true);
+  xhttp.send();
+}
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+body{
+background-image: url("hotels.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+#text
+{
+  color:white;
+}
+p {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 66px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, red,white, black);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+}
+
+@keyframes animate {
+  0% {
+    background-position: -56%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+</style>
+</head>
+<body onload="loadDoc()">
+    <h1 align="center" id="text">Best Hotels and Restaurants in Your City</h1>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a id="j1" href="paradise.html"></a></li>
+  <li><a id="j2" href="matteos.html"></a></li>
+
+  <li><a id="j3" href="caffeine.html"></a></li>
+  <li><a  id="j4" href="veg.html"></a></li>
+
+  <li><a id="j5" href="jeeru.html"></a></li>
+</ul>
+<b><p align="center">GooD FooD,GooD MooD</p></b>
+<script>
+  function loadDoc() {
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+         var obj = JSON.parse(this.responseText);
+         var name=obj.restaurants[0].restaurant.name;
+         document.getElementById("j1").innerHTML=name;
+         var name1=obj.restaurants[1].restaurant.name;
+         document.getElementById("j2").innerHTML=name1;
+         var name2=obj.restaurants[2].restaurant.name;
+         document.getElementById("j3").innerHTML=name2;
+         var name3=obj.restaurants[3].restaurant.name;
+         document.getElementById("j4").innerHTML=name3;
+         var name4=obj.restaurants[4].restaurant.name;
+         document.getElementById("j5").innerHTML=name4;
+
+         }
+       };
+       xhttp.open("GET", "https://developers.zomato.com/api/v2.1/search");
+       xhttp.setRequestHeader("user-key", "f1e2715f4d757bc6b6aaf891d975b1e8");
+       xhttp.send();
+       xhttp.onload = function() {
+         console.log(xhttp.responseText);
+       };
+     }
+</script>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="paradise.css">
+  </head>
+  <body onload="loadDoc()">
+
+      <marquee><h1>Jeeru Rehmani Chicken Point</h1></marquee>
+
+      <img id="i1" src="otel.jpg" style="border:2px solid black">
+      <div id="down">
+        <h1 align="center" id="demo"></h1>
+        <h2 align="center" id="demo1"></h2>
+        <h3 align="center">Signature Dish</h3>
+            <img id="img1">
+            <p><h2>cuisines:</h2><h3 id="demo2"></h3></p>
+            <a href="https://www.zomato.com/malerkotla/jeeru-rehmani-chicken-point-malerkotla-locality?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1">FOR MORE INFORMATION ABOUT  Jeeru Rehmani Chicken Point HOTEL</a >
+        </div>
+        <script>
+          function loadDoc() {
+               var xhttp = new XMLHttpRequest();
+               xhttp.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                 var obj = JSON.parse(this.responseText);
+                 console.log(obj)
+                 var name=obj.restaurants[4].restaurant.name;
+                 document.getElementById("demo").innerHTML=name;
+                 var address=obj.restaurants[4].restaurant.location.address;
+                 document.getElementById("demo1").innerHTML=address;
+                 var url=obj.restaurants[4].restaurant.thumb;
+                 var get_tag=document.getElementById("img1");
+                 get_tag.setAttribute("src",url)
+                 var cui=obj.restaurants[4].restaurant.cuisines;
+                 document.getElementById("demo2").innerHTML=cui;
+                 }
+               };
+               xhttp.open("GET", "https://developers.zomato.com/api/v2.1/search");
+               xhttp.setRequestHeader("user-key", "f1e2715f4d757bc6b6aaf891d975b1e8");
+               xhttp.send();
+               xhttp.onload = function() {
+                 console.log(xhttp.responseText);
+               };
+             }
+        </script>
+        </script>
+  </body>
+</html>
