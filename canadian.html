@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -148,13 +148,10 @@
 
    function fetch() {
   var xhttp;
-  if (window.XMLHttpRequest) {
-    // code for modern browsers
+  
     xhttp = new XMLHttpRequest();
-  } else {
-    // code for IE6, IE5
-    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
+  
+  
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     var obj=JSON.parse(this.responseText);
