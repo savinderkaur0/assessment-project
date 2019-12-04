@@ -16,7 +16,7 @@
         <h3 align="center">Signature Dish</h3>
             <img id="img1">
             <p><h2>cuisines:</h2><h3 id="demo2"></h3></p>
-            <a href="https://www.zomato.com/forresters-beach-nsw/di-matteos-restaurant-forresters-beach?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1">FOR MORE INFORMATION ABOUT Di Matteos Restaurant</a>
+            <a id="source">FOR MORE INFORMATION ABOUT Di Matteos Restaurant</a>
         </div>
         <script>
           function loadDoc() {
@@ -24,7 +24,7 @@
                xhttp.onreadystatechange = function() {
                  if (this.readyState == 4 && this.status == 200) {
                  var obj = JSON.parse(this.responseText);
-                 console.log(obj)
+                 console.log(obj);
                  var name=obj.restaurants[2].restaurant.name;
                  document.getElementById("demo").innerHTML=name;
                  var address=obj.restaurants[2].restaurant.location.address;
@@ -34,6 +34,8 @@
                  get_tag.setAttribute("src",url)
                  var cui=obj.restaurants[2].restaurant.cuisines;
                  document.getElementById("demo2").innerHTML=cui;
+                 var url1=obj.restaurants[2].restaurant.url;
+                 document.getElementById("source").setAttribute("href", url1);
                  }
                };
                xhttp.open("GET", "https://developers.zomato.com/api/v2.1/search");

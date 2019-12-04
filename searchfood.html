@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <head>
+<style>
+body
+{
+  background-color: #ffa366;
+}
+img
+{
+  border:5px solid black;
+}
+#btn
+{
+  color:black;
+}
+</style>
+  </head>
+  <h1 align="center">Search By main Ingredient</h1>
+   <div style="text-align: center; margin-top: 50px;">
+  <input type="text" name="food" id="search-box" placeholder="Enter main gredient">
+          <h4></h4>
+          <button id="btn" onclick="fetchData()">Search</button>
+          <button id="btn1" onclick="removeData()">Remove</button>
+          <div>
+
+<div id="resDetails">
+  </div>
+
+<script>
+  function removeData()
+  {
+
+               var remove_child = document.getElementById('resDetails')
+               document.body.removeChild(remove_child) ;
+  }
+function fetchData() {
+  var searchBoxValue = document.getElementById('search-box').value;
+                var url = 'https://www.themealdb.com/api/json/v1/1/filter.php?i='+searchBoxValue
+                var xhr = new XMLHttpRequest()
+                xhr.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200) {
+                data=JSON.parse(this.responseText);
+                console.log(data);
+                var divMain= document.getElementById("resDetails");
+
+                 for(i=0;i<data.meals.length;i++)
+                 {
+                 var res_name=data.meals[i].strMeal;
+                 var res_img=data.meals[i].strMealThumb;
+                    console.log(res_name);
+                 var divRes= document.createElement("div");
+             divRes.setAttribute("id",i+1);
+
+             var nameRes = document.createElement("h2");
+             nameRes.innerHTML=res_name;
+             console.log(nameRes);
+             divRes.appendChild(nameRes);
+
+             var imgRes = document.createElement("img");
+             imgRes.setAttribute("src",res_img);
+             imgRes.setAttribute("height","250px");
+             imgRes.setAttribute("width","300px");
+             divRes.appendChild(imgRes);
+
+
+             divMain.appendChild(divRes);
+
+             var lineBreak = document.createElement("br");
+             divMain.appendChild(lineBreak);
+                   }
+                 }
+                 };
+                 xhr.open('GET',url,true);
+               xhr.send();
+             }
+</script>
+
+</body>
+</html>

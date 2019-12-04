@@ -16,7 +16,7 @@
         <h3 align="center">Signature Dish</h3>
             <img id="img1">
             <p><h2>cuisines:</h2><h3 id="demo2"></h3></p>
-            <a href="https://www.zomato.com/balaghat/the-chocolate-story-balaghat-locality?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1">FOR MORE INFORMATION ABOUT THE CHOCOLATE STORY</a>
+            <a id="source">FOR MORE INFORMATION ABOUT THE CHOCOLATE STORY</a>
         </div>
         <script>
           function loadDoc() {
@@ -34,6 +34,8 @@
                  get_tag.setAttribute("src",url)
                  var cui=obj.restaurants[0].restaurant.cuisines;
                  document.getElementById("demo2").innerHTML=cui;
+                 var url1=obj.restaurants[0].restaurant.url;
+                 document.getElementById("source").setAttribute("href", url1);
                  }
                };
                xhttp.open("GET", "https://developers.zomato.com/api/v2.1/search");

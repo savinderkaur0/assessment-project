@@ -34,6 +34,8 @@
                  get_tag.setAttribute("src",url)
                  var cui=obj.restaurants[1].restaurant.cuisines;
                  document.getElementById("demo2").innerHTML=cui;
+                 var url1=obj.restaurants[1].restaurant.url;
+                 document.getElementById("source").setAttribute("href", url1);
                  }
                };
                xhttp.open("GET", "https://developers.zomato.com/api/v2.1/search");

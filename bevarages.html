@@ -18,8 +18,10 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="search.html" target="_self">Search Hotel</a></li>
+      <li><a href="search.html" target="_self">Restaurants</a></li>
+      <li><a href="food.html">Food Of The Day</a></li>
       <li><a href="gallery.html" target="_self">Gallery</a></li>
+      <li><a href="searchfood.html" target="_self">Search</a></li>
               <li><a href="contact.html" target="_self">Contact Us</a></li>
     </ul>
   </div>
@@ -80,9 +82,9 @@
 
    function loadDoc() {
   var xhttp;
- 
+
     xhttp = new XMLHttpRequest();
-  
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     var obj=JSON.parse(this.responseText);
